@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periféricos Gaming</title>
+    <style>
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        nav {
+            background: #F55E03;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            padding: 5px 0;
+        
+        }
+        
+        .menu li {
+            position: relative;
+        }
+        
+        .menu > li > a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        
+        .menu > li:hover {
+            background: #ec7022;
+        }
+        
+        /* Primer nivel de menú desplegable */
+        .submenu {
+            position: absolute;
+            background: #fff8f8;
+            width: 200px;
+            display: none;
+            list-style: none;
+            z-index: 10;
+        }
+        
+        .menu li:hover > .submenu {
+            display: block;
+        }
+        
+        .submenu a {
+            color: black;
+            padding: 12px 15px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .submenu li {
+            position: relative;
+        }
+        
+        .submenu li:hover {
+            background: #cacaca;
+        }
+        
+        /* Segundo nivel de menú desplegable (submenú dentro de submenú) */
+        .submenu .submenu {
+            left: 100%;
+            top: 0;
+        }
+        
+        /* Indicador de que hay un submenú */
+        .menu-arrow::after {
+            content: " ▶";  
+            font-size: 12px;
+        }
+-------------------------------------------------------------------------------------------------------------
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+.footer {
+            background-color: #223893;
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Logo section */
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 300px;
+        }
+        
+        .footer-logo img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        /* Contact section */
+        .footer-contact, .footer-address, .footer-hours {
+            padding: 0 20px;
+            max-width: 300px;
+        }
+        
+        .footer-section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .contact-info p, .address-info p, .hours-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i, .address-info i, .hours-info i {
+            margin-right: 10px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo, .footer-contact, .footer-address, .footer-hours {
+                margin-bottom: 30px;
+                width: 100%;
+                max-width: none;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        --------------------------------------------------------------------------------------------------------
+        body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .producto {
+      display: flex;
+      gap: 20px;
+    }
+    .producto img {
+      width: 300px;
+      height: 350px;
+    }
+    .info {
+      max-width: 500px;
+    }
+    .precio {
+      color: darkred;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .boton {
+      background-color: #F55E03;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .inventario {
+      color: green;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <nav>
+        <img src="incometal.jpg" alt="joval" align="right" style="width:130px;height:65px;">
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="prueva2.html" class="menu-arrow">catalogo</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="lavamanos.html" >Lavamanos</a>
+                        
+                    </li>
+                    <li><a href="tanques.html">Tanques</a>
+                        
+                     
+                    <li><a href="mueble.html">Muebles</a></li>
+
+                    <li><a href="comedor.html">Comedor</a></li>
+
+                    <li><a href="escalera.html">Escalesras</a></li>
+
+                    <li><a href="mesa de centro.html">Mesa de centro</a></li>
+
+
+
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="presentacion.html">Presentacion</a></li>
+
+        </ul>
+    </nav>
+    <br>
+    <br>
+
+
+
+    <div class="producto">
+        <img src="banco2.PNG" alt="Router Tenda WiFi 6">
+        <div class="info">
+          <h2>Banco de interior, elegante y minimalista</h2>
+          <p>Elegante y minimalista. Cuenta con una estructura de metal cromado y un asiento formado por varias lamas horizontales de madera oscura o un material compuesto con acabado oscuro. Los soportes son rectangulares y delgados.</p>
+        <br>
+          <p class="precio">RD$3,500</p>
+          <br>
+        </div>
+      </div>
+
+
+
+
+    <br>
+    <br>
+
+    <footer class="footer">
+        <!-- Logo and social media section -->
+        <div class="footer-logo">
+            <img src="incometal 2.jpg" alt="INCOMETAL Logo">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/incometalinox/" class="social-icon">
+                    <img src="facebook.jpg"  height="35">
+                </a>
+                <a href="https://www.instagram.com/incometalinox/" class="social-icon">
+                    <img src="instagram.jpg"  height="35">
+
+                </a>
+            </div>
+        </div>
+        
+        <!-- Contact information section -->
+        <div class="footer-contact">
+            <h3 class="footer-section-title">CONTACTO</h3>
+            <div class="contact-info">
+                <p><i class="far fa-envelope"></i> incometal@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 809-379-2030</p>
+                <p><i class="fab fa-whatsapp"></i> 809-722-2312</p>
+            </div>
+        </div>
+        
+        <!-- Address section -->
+        <div class="footer-address">
+            <h3 class="footer-section-title">DIRECCIÓN</h3>
+            <div class="address-info">
+                <p>C/21 #10, casi esq. Carretera de Manoguayabo, Nave #3, Villa Aura, Santo Domingo Oeste, Rep. Dom.</p>
+            </div>
+        </div>
+        
+        <!-- Hours section -->
+        <div class="footer-hours">
+            <h3 class="footer-section-title">HORARIO</h3>
+            <div class="hours-info">
+                <p>Lunes a Jueves | 7:00AM - 5:00PM</p>
+                <p>Viernes | 8:00AM - 5:00PM</p>
+            </div>
+        </div>
+    </footer>

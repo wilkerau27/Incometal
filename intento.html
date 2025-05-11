@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo General | Patrimonio Documental Nacional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            /* Eliminada la imagen de fondo:
+            background-image: url("fondo.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            */
+        }
+        
+       
+        
+        
+        
+        /* Secciones */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .section:nth-child(odd) {
+            background-color: rgba(255, 249, 245, 0.85); /* Naranja muy claro con transparencia */
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            color: #FF8533; /* Naranja más oscuro */
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #FF9A52; /* Naranja claro */
+        }
+        
+       
+        /* Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid #FF9A52; /* Borde superior naranja */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: #FF8533; /* Naranja más oscuro */
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+       
+
+        .video-container {
+            max-width: 600px;
+            width: 100%;
+            margin: center; /* Centra el contenedor del video */
+        }
+
+        .video-container iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        /* NUEVA SECCIÓN: AUTORES - Adaptada al estilo del Archivo General */
+        .authors-section {
+            background-color: rgba(255, 249, 245, 0.85); /* Color naranja muy claro con transparencia */
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .authors-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .author-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #FF9A52; /* Naranja claro, igual que las cards de servicio */
+        }
+
+        .author-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+/*----------------------------------------------------------------------------------------------------------*/
+        .author-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid #FF9A52; /* Borde naranja claro */
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            color: #FF8533; /* Naranja más oscuro */
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .author-role {
+            color: #FF9A52; /* Naranja claro */
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .author-info {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .author-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .author-contact a {
+            color: #FF9A52; /* Naranja claro */
+            transition: color 0.3s;
+        }
+
+        .author-contact a:hover {
+            color: #FF8533; /* Naranja más oscuro */
+        }
+
+        /* Estilo para los elementos de propósito del proyecto */
+        .project-purpose {
+            margin-top: 20px;
+        }
+
+        .boxes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .box {
+            width: 30%;
+            min-width: 100px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #FF9A52; /* Naranja claro */
+            text-align: left;
+        }
+
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FF8533; /* Naranja oscuro */
+        }
+
+        .box-content {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .highlight {
+            color: #FF9A52; /* Naranja claro */
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .author-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .box {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+          
+       
+        h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #FF8533;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #FF8533;
+        }
+        .description{
+            text-align: left;
+        }
+        ----------------------------------------------------------------------------------------------------
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        nav {
+            background: #F55E03;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            padding: 5px 0;
+        
+        }
+        
+        .menu li {
+            position: relative;
+        }
+        
+        .menu > li > a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        
+        .menu > li:hover {
+            background: #ec7022;
+        }
+        
+        /* Primer nivel de menú desplegable */
+        .submenu {
+            position: absolute;
+            background: #fff8f8;
+            width: 200px;
+            display: none;
+            list-style: none;
+            z-index: 10;
+        }
+        
+        .menu li:hover > .submenu {
+            display: block;
+        }
+        
+        .submenu a {
+            color: black;
+            padding: 12px 15px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .submenu li {
+            position: relative;
+        }
+        
+        .submenu li:hover {
+            background: #cacaca;
+        }
+        
+        /* Segundo nivel de menú desplegable (submenú dentro de submenú) */
+        .submenu .submenu {
+            left: 100%;
+            top: 0;
+        }
+        
+        /* Indicador de que hay un submenú */
+        .menu-arrow::after {
+            content: " ▶";  
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera Superior -->
+    <nav>
+        <img src="incometal.jpg" alt="joval" align="right" style="width:130px;height:65px;">
+
+        <ul class="menu">
+            <li><a href="pagina web.html">Inicio</a></li>
+            <li>
+                <a href="prueva2.html" class="menu-arrow">catalogo</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="lavamanos.html" >Lavamanos</a>
+                        
+                    </li>
+                    <li><a href="tanques.html">Tanques</a>
+                        
+                     
+                    <li><a href="mueble.html">Muebles</a></li>
+
+                    <li><a href="comedor.html">Comedor</a></li>
+
+                    <li><a href="escalera.html">Escalesras</a></li>
+
+                    <li><a href="mesa de centro.html">Mesa de centro</a></li>
+
+
+
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="presentacion.html">Presentacion</a></li>
+
+        </ul>
+    </nav>
+    
+
+    <!-- NUEVA SECCIÓN: AUTORES -->
+    <section class="authors-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Autores</h2>
+            </div>
+            <div class="authors-container">
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="Wilken.jfif">
+                    </div>
+                    <h3 class="author-name">Wilker Aquino</h3>
+                    <div class="author-contact">
+                    </div>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-image">
+                        <img src="RD.PNG" >
+                    </div>
+                    <h3 class="author-name">Adriel Evelio</h3>
+                    <div class="author-contact">
+                    </div>
+                </div>
+                <br>
+                <br>
+<br>
+<br>
+<br>
+                <!-- NUEVA TARJETA DE AUTOR CON PROPÓSITO DEL PROYECTO -->
+                <div class="author-card" style="width: 100%; max-width: 800px;">
+                   
+                    <div class="title">
+                        <h2>Propósito del Proyecto</h2>
+                    </div>
+                    <br>
+                    <div class="description">
+                        Este proyecto tiene como objetivo principal crear una plataforma digital moderna y accesible para el <span class="highlight">Archivo General de la Nación</span>, permitiendo a los ciudadanos e investigadores explorar virtualmente la Biblioteca historica, obtener información actualizada sobre libros historicos y servicios.
+                    </div>
+                    
+                    <div class="description">
+                        Nuestra visión es utilizar la tecnología para promover la preservación del patrimonio documental dominicano y la educación histórica, acercando los archivos históricos a un público más amplio a través de una experiencia digital inmersiva y educativa.
+                    </div>
+                    <br>
+                    <div class="boxes-container">
+                        <div class="box">
+                            <div class="box-title">Difusión</div>
+                            <div class="box-content">
+                                Aumentar la visibilidad del Archivo General de la Nación y sus colecciones documentales, promoviendo el valor del patrimonio histórico y cultural dominicano.
+                            </div>
+                        </div>
+                        
+                        <div class="box">
+                            <div class="box-title">Educación</div>
+                            <div class="box-content">
+                                Ofrecer recursos educativos sobre la historia dominicana y herramientas de investigación accesibles para estudiantes, investigadores y público general.
+                            </div>
+                        </div>
+                        
+                        <div class="box">
+                            <div class="box-title">Experiencia</div>
+                            <div class="box-content">
+                                Mejorar la experiencia de los usuarios antes, durante y después de su visita al archivo con herramientas interactivas y acceso digital a fondos documentales históricos.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<br>
+<br>
+<br>
+
+                <div class="greeting-section">
+                    <h2>Presentacion del Proyecto</h2>
+                    <p>Presentacion del proyecto final, INSTECUPA 2025 - 6to Informatica B, Wilker Aquino #3 Adriel Evelio</p>
+                    <br>
+                    <div class="video-container">
+                        <iframe src="Video.momo.mp5" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+</body>
+</html>
